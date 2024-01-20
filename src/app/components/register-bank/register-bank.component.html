@@ -12,15 +12,15 @@
       <p><label>Nome Completo Banco:</label> {{ bank.fullName }}</p>
     </div>
     <div>
-    <mat-form-field>
-      <mat-label>Agência</mat-label>
-      <input matInput [formControl]="agency" value="{{ agency.value }}" />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Conta</mat-label>
-      <input matInput [formControl]="account" value="{{ account.value }}" />
-    </mat-form-field>
-   </div>
+      <mat-form-field>
+        <mat-label>Agência</mat-label>
+        <input matInput [formControl]="agency" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Conta</mat-label>
+        <input matInput [formControl]="account" />
+      </mat-form-field>
+    </div>
   </mat-dialog-content>
 
   <mat-dialog-actions>

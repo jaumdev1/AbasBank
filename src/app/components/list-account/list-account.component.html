@@ -1,0 +1,37 @@
+<div>
+  <label>Código do Banco: </label>
+  <input [(ngModel)]="searchCode" />
+  <button (click)="searchByCode()">Pesquisar</button>
+</div>
+
+<div *ngIf="banks && banks.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Id / Código</th>
+        <th>ISPB</th>
+        <th>Nome do Banco</th>
+        <th>Agência</th>
+        <th>Conta</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bank of banks">
+        <td><span>{{ bank.code }}</span></td>
+        <td><span>{{ bank.ispb }}</span></td>
+        <td><span>{{ bank.name }}</span></td>
+        <td><span>{{ bank.agency }}</span></td>
+        <td><span>{{ bank.account }}</span></td>
+        <td>
+          <button (click)="editAccount(bank)">Editar</button>
+          <button (click)="deleteAccount(bank)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!banks || banks.length === 0">
+  <p>Nenhuma conta encontrada.</p>
+</div>

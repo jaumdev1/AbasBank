@@ -1,3 +1,6 @@
+@import '../variables.scss';
+
+
 nav {
   background-color: #fff;
   padding: 30px;
@@ -11,20 +14,20 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+
     li {
       margin-right: 15px;
       display: inline-block;
 
       a {
         text-decoration: none;
-
         transition: background-color 0.3s;
+        font-size: 18px;
 
         &.active {
           font-weight: bold;
           text-decoration: underline;
         }
-
         &:hover {
           text-decoration: underline;
         }

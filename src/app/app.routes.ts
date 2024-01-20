@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
 import { CatalogBankComponent } from './pages/catalog-bank/catalog-bank.component';
-import { HeaderComponent } from './pages/header/header.component';
+import { CatalogAccountComponent } from './pages/catalog-account/catalog-account.component';
 export const routes: Routes = [
   { path: 'catalog-bank', component: CatalogBankComponent },
-  { path: 'catalog-account', component: HeaderComponent },
-
+  { path: 'catalog-account', component: CatalogAccountComponent },
 ];
