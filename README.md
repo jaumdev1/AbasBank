@@ -6,6 +6,18 @@ O projeto AbasBank é uma aplicação bancária Angular que incorpora recursos, 
 
 A versão mais recente da aplicação está disponível [aqui](https://abas-bank-joao.vercel.app/). Explore os recursos e funcionalidades oferecidos pela aplicação.
 
+
+# Paleta de Cores
+
+Aqui estão as cores principais utilizadas neste projeto:
+
+| Nome                | Código Hexadecimal |
+|---------------------|---------------------|
+| **Botão Principal** | ![#F2C30D](https://via.placeholder.com/15/F2C30D/000000?text=+) `#F2C30D` |
+| **Cor do Link**     | ![#411c54](https://via.placeholder.com/15/411c54/000000?text=+) `#411c54` |
+| **Cor da Etiqueta** | ![#411c54](https://via.placeholder.com/15/411c54/000000?text=+) `#411c54` |
+| **Cor do Texto**    | ![#111011](https://via.placeholder.com/15/111011/000000?text=+) `#111011` |
+| **Cor de Fundo**    | ![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) `#ffffff` |
 ## Recursos Principais
 
 ### Tela de Listagem de Bancos:

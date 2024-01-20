@@ -8,7 +8,7 @@
   }
 }
 div {
-  margin-bottom: 20px;
+
   text-align: center;
   display: flex;
   align-items: center;
@@ -33,6 +33,7 @@ input {
   border: 1px solid #ccc;
   font-size: 16px;
   transition: all 0.3s ease;
+
 }
 
 input:focus {
@@ -58,9 +59,7 @@ th, td {
   max-height: 50px;
   margin: 0;
   box-sizing: border-box;
-  button {
-    margin-right: 5px;
-  }
+  padding: 15px;
 }
 
 th span, td span {
@@ -92,5 +91,11 @@ div:last-child {
     display: block;
     margin: 5px 0;
   }
+  .filter{
+    div{
+      display: flex;
+      flex-direction: column;
+    }
 
+  }
 }
