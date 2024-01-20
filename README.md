@@ -19,6 +19,8 @@ Aqui estão as cores principais utilizadas neste projeto (foram baseadas no site
 | **Cor da Etiqueta** | ![#411c54](https://via.placeholder.com/15/411c54/000000?text=+) `#411c54` |
 | **Cor do Texto**    | ![#111011](https://via.placeholder.com/15/111011/000000?text=+) `#111011` |
 | **Cor de Fundo**    | ![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) `#ffffff` |
+
+
 ## Recursos Principais
 
 ### Tela de Listagem de Bancos:
@@ -32,6 +34,9 @@ Aqui estão as cores principais utilizadas neste projeto (foram baseadas no site
 - Exibe todas as informações detalhadas do banco selecionado.
 - Possui campos para o usuário informar agência e conta para cadastro.
 - Inclui um botão para cadastrar a conta, armazenando as informações no Local Storage.
+
+
+
 
 ## Integração com a API Brasil - Bancos
 

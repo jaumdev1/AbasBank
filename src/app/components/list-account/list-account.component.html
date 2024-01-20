@@ -28,8 +28,10 @@
         <td><span>{{ bank.agency }}</span></td>
         <td><span>{{ bank.account }}</span></td>
         <td>
+          <div>
           <button (click)="editAccount(bank)">Editar</button>
           <button (click)="deleteAccount(bank)">Excluir</button>
+        </div>
         </td>
       </tr>
     </tbody>
