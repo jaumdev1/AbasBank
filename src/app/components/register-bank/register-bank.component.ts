@@ -1,11 +1,26 @@
 import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Bank } from '../../models/Bank.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
-
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-register-bank',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './register-bank.component.html',
   styleUrls: ['./register-bank.component.scss'],
 })
@@ -22,7 +37,8 @@ export class RegisterBankComponent implements OnInit, AfterViewInit {
   }
   constructor(
     public dialogRef: MatDialogRef<RegisterBankComponent>,
-    @Inject(MAT_DIALOG_DATA) public bank: Bank
+    @Inject(MAT_DIALOG_DATA) public bank: Bank,
+    private snackBar: MatSnackBar
   ) {}
 
 
@@ -36,17 +52,21 @@ export class RegisterBankComponent implements OnInit, AfterViewInit {
         name: this.bank.name,
         fullName: this.bank.fullName,
       };
-
       localStorage.setItem('registrationData', JSON.stringify(registrationData));
 
       this.dialogRef.close();
     } else {
-      alert('Por favor, preencha todos os campos.');
+      this.openSnackBar('Por favor, preencha todos os campos.');
     }
   }
 
 
   updateValidity() {
-    this.formValid = this.agency.value?.trim() !== '' && this.account.value?.trim() !== '';
+    this.formValid = this.agency?.value?.trim() !== '' && this.account?.value?.trim() !== '';
+  }
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Fechar', {
+      duration: 3000,
+    });
   }
 }

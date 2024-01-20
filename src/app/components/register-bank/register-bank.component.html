@@ -11,17 +11,19 @@
       <p><label>Código do Banco:</label> {{ bank.code }}</p>
       <p><label>Nome Completo Banco:</label> {{ bank.fullName }}</p>
     </div>
+    <div>
     <mat-form-field>
       <mat-label>Agência</mat-label>
-      <input matInput [formControl]="agency" />
+      <input matInput [formControl]="agency" value="{{ agency.value }}" />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Conta</mat-label>
-      <input matInput [formControl]="account" />
+      <input matInput [formControl]="account" value="{{ account.value }}" />
     </mat-form-field>
+   </div>
   </mat-dialog-content>
 
   <mat-dialog-actions>
-    <button mat-button (click)="registerAccount()" [disabled]="!formValid">Salvar Conta</button>
+    <button mat-button (click)="registerAccount()" [disabled]="!formValid" [class.disabled-button]="!formValid">Salvar Conta</button>
   </mat-dialog-actions>
 </div>

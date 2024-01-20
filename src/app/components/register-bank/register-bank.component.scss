@@ -14,7 +14,9 @@
   mat-dialog-content {
     padding: 20px;
     text-align: center;
-
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
     .info-bank {
       display: flex;
       flex-direction: column;
@@ -47,4 +49,8 @@
     align-items: center;
     padding: 20px;
   }
+}
+.disabled-button {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BankService } from '../../services/bank.service';
 import { Bank } from '../../models/Bank.model';
 import { MatDialog } from '@angular/material/dialog';
-import { RegisterBankComponent } from '../register-bank/RegisterBankComponent';
+import { RegisterBankComponent } from '../register-bank/register-bank.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
