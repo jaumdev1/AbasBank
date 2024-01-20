@@ -84,7 +84,7 @@ export class RegisterBankComponent implements OnInit, AfterViewInit {
 
       this.dialogRef.close();
       this.openSnackBar('Conta salva com sucesso!');
-      this.router.navigate(['/catalog-account']);
+      this.router.navigate(['/']);
     } else {
       this.openSnackBar('Por favor, preencha todos os campos.');
     }

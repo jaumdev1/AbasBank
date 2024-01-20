@@ -4,6 +4,9 @@
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
+  overflow: hidden;
+  width: 700px;
+  max-width: 100%;
 
   .mat-dialog-close{
     display: flex;
@@ -11,12 +14,15 @@
     padding: 10px;
   }
 
+
   mat-dialog-content {
     padding: 20px;
     text-align: center;
     display: flex;
     gap: 50px;
     flex-direction: column;
+    max-height: 80vh;
+    overflow-y: auto;
     .info-bank {
       display: flex;
       flex-direction: column;
@@ -53,4 +59,7 @@
 .disabled-button {
   opacity: 0.5;
   cursor: not-allowed;
+}
+p {
+  word-wrap: break-word;
 }

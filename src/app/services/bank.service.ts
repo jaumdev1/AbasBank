@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, of, throwError } from 'rxjs';
 import { Bank } from '../models/Bank.model';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class BankService {
-  private apiUrl = 'https://brasilapi.com.br/api/banks/v1';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

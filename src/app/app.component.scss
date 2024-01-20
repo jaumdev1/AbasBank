@@ -1,11 +1,41 @@
 @import '../variables.scss';
 
-
 nav {
+  position: relative;
   background-color: #fff;
   padding: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+
+  .menu-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+
+    &:focus {
+      outline: none;
+    }
+
+    div {
+      width: 2rem;
+      height: 0.25rem;
+      background: #333;
+      border-radius: 10px;
+      transition: all 0.3s linear;
+      position: relative;
+      transform-origin: 1px;
+    }
+  }
 
   ul {
     list-style: none;
@@ -14,10 +44,10 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease-in-out;
 
     li {
       margin-right: 15px;
-      display: inline-block;
 
       a {
         text-decoration: none;
@@ -32,6 +62,24 @@ nav {
           text-decoration: underline;
         }
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+
+    }
+
+    ul {
+      flex-direction: column;
+      display: none;
+      gap:15px;
+      align-items: start;
+    }
+
+    ul.active {
+      display: flex;
     }
   }
 }

@@ -1,10 +1,17 @@
-
 <nav>
-  <ul>
-    <li><a routerLink="/catalog-account" routerLinkActive="active" ariaCurrentWhenActive="page"><i class="fas fa-home"></i> Início</a></li>
-    <li><a routerLink="/catalog-bank" routerLinkActive="active" ariaCurrentWhenActive="page"><i class="fas fa-university"></i> Catálago de Bancos</a></li>
-    <li><a href="https://github.com/jaumdev1/AbasBank"><i class="fab fa-github"></i> Repositório</a></li>
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </button>
+  <ul [class.active]="menuOpen">
+    <li><a routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" ariaCurrentWhenActive="page"><i class="fas fa-home"></i> Início</a></li>
+    <li><a routerLink="/catalog-bank" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" ariaCurrentWhenActive="page"><i class="fas fa-university"></i> Catálago de Bancos</a></li>
+    <li><a href="https://github.com/jaumdev1/AbasBank" target="_blank"><i class="fab fa-github"></i> Repositório</a></li>
   </ul>
 </nav>
+
+
+
 
 <router-outlet></router-outlet>
