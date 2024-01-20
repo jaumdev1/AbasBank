@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RegisterBankComponent } from '../register-bank/register-bank.component';
@@ -17,15 +17,17 @@ export class ListAccountComponent implements OnInit {
   searchCode: string = '';
   banks: BankAccount[] = [];
 
-  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) {}
+  isLoading: boolean = false;
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
   const storedAccounts = localStorage.getItem('accountsBanks');
-  console.log(storedAccounts);
   this.banks = storedAccounts ? JSON.parse(storedAccounts) : [];
   }
 
   searchByCode(): void {
+
+    this.cdr.detectChanges();
     const storedAccounts = localStorage.getItem('accountsBanks');
     const allBanks = storedAccounts ? JSON.parse(storedAccounts) : [];
 
@@ -34,7 +36,8 @@ export class ListAccountComponent implements OnInit {
     } else {
         this.banks = allBanks.filter((bank:BankAccount) => String(bank.code).includes(this.searchCode));
     }
-}
+
+  }
 
 
 

@@ -6,6 +6,8 @@ import { RegisterBankComponent } from '../register-bank/register-bank.component'
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { LoadingService } from '../../services/loading.service';
+import { LoadingIndicatorComponent } from '../loading-indicator/loading-indicator.component';
 
 @Component({
   selector: 'app-bank',
@@ -13,7 +15,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
   imports: [CommonModule,
             FormsModule,
             NgxPaginationModule,
-            FormsModule],
+            FormsModule, LoadingIndicatorComponent],
   templateUrl: './bank.component.html',
   styleUrls: ['./bank.component.scss'],
 })
@@ -22,7 +24,7 @@ export class BankComponent implements OnInit {
   searchCode: string = '';
   p: number =1;
 
-  constructor(private bankService: BankService, private dialog: MatDialog) {}
+  constructor(private bankService: BankService, private dialog: MatDialog, private loadingService: LoadingService) {}
 
   ngOnInit(): void {
     this.getBankData();
@@ -35,7 +37,9 @@ export class BankComponent implements OnInit {
   }
 
   searchByCode(): void {
+    this.loadingService.showLoading();
     if (this.searchCode) {
+
       this.bankService.searchByBankCode(this.searchCode).subscribe({
         next: (data) => {
           this.banks = [data];
@@ -47,6 +51,7 @@ export class BankComponent implements OnInit {
     } else {
       this.getBankData();
     }
+    this.loadingService.hideLoading();
   }
 
   openRegisterModal(bank: Bank): void {
@@ -60,7 +65,5 @@ export class BankComponent implements OnInit {
     });
   }
 
-changePage(numeroDaPagina: number) {
-  this.p = numeroDaPagina;
-}
+
 }

@@ -1,7 +1,11 @@
-<div>
+<app-loading-indicator></app-loading-indicator>
+<div class="filter">
+  <h1>Catálogo de Bancos</h1>
+  <div>
   <label>Código do Banco: </label>
   <input [(ngModel)]="searchCode" />
   <button (click)="searchByCode()">Pesquisar Banco</button>
+  </div>
 </div>
 
 <div  class="board-bank" *ngIf="banks && banks.length > 0">
@@ -15,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let bank of banks | paginate: { itemsPerPage: 10, currentPage: p }">
+      <tr *ngFor="let bank of banks | paginate: { itemsPerPage: 8, currentPage: p }">
         <td><span>{{ bank.name }}</span></td>
         <td><span>{{ bank.fullName }}</span></td>
         <td>

@@ -1,7 +1,11 @@
-<div>
+
+  <div class="filter">
+    <h1>Catálogo de Contas</h1>
+  <div>
   <label>Código do Banco: </label>
   <input [(ngModel)]="searchCode" />
   <button (click)="searchByCode()">Pesquisar Conta</button>
+  </div>
 </div>
 
 <div *ngIf="banks && banks.length > 0">

@@ -1,5 +1,12 @@
 @import '../../../variables.scss';
-
+.filter{
+  display: flex;
+  flex-direction: column;
+  div{
+   display: flex;
+   gap:15px;
+  }
+}
 div {
   margin-bottom: 20px;
   text-align: center;
