@@ -9,7 +9,8 @@ A versão mais recente da aplicação está disponível [aqui](https://abas-bank
 
 # Paleta de Cores
 
-Aqui estão as cores principais utilizadas neste projeto:
+
+Aqui estão as cores principais utilizadas neste projeto (foram baseadas no site da abas):
 
 | Nome                | Código Hexadecimal |
 |---------------------|---------------------|
