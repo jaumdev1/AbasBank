@@ -1,0 +1,50 @@
+@import '../../../variables.scss';
+.custom-dialog {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .mat-dialog-close{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
+  mat-dialog-content {
+    padding: 20px;
+    text-align: center;
+
+    .info-bank {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      p {
+        margin: 0;
+        label {
+          font-weight: bold;
+          margin-right: 5px;
+          color: $label-color;
+        }
+      }
+    }
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+  mat-dialog-close{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+  }
+}

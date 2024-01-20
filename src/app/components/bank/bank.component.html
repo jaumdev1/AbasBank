@@ -1,0 +1,30 @@
+<div>
+  <label>Código do Banco: </label>
+  <input [(ngModel)]="searchCode" />
+  <button (click)="searchByCode()">Pesquisar</button>
+</div>
+
+<div  *ngIf="banks && banks.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Nome do Banco</th>
+        <th>Nome Completo</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bank of banks">
+        <td><span>{{ bank.name }}</span></td>
+        <td><span>{{ bank.fullName }}</span></td>
+        <td>
+          <button (click)="openRegisterModal(bank)">Cadastrar Conta</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!banks || banks.length === 0">
+  <p>Nenhum banco encontrado.</p>
+</div>

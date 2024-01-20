@@ -1,0 +1,73 @@
+@import '../../../variables.scss';
+
+div {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:15px;
+}
+
+div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+
+
+table {
+  width: 100%;
+  max-width: 1000px;
+  border-collapse: collapse;
+  margin-top: 10px;
+  table-layout: fixed;
+  box-sizing: border-box;
+
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  max-height: 50px;
+}
+
+th span, td span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #F2C30D;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+div:last-child {
+  color: $link-color;
+}
+
+@media (max-width: 500px) {
+  th, td {
+    padding: 5px;
+    font-size: 0.8em;
+  }
+}
