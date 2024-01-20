@@ -13,6 +13,7 @@
   <table>
     <thead>
       <tr>
+        <th>Código do Banco</th>
         <th>Nome do Banco</th>
         <th>Nome Completo</th>
         <th>Ações</th>
@@ -20,6 +21,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let bank of banks | paginate: { itemsPerPage: 8, currentPage: p }">
+        <td><span>{{ bank.code }}</span></td>
         <td><span>{{ bank.name }}</span></td>
         <td><span>{{ bank.fullName }}</span></td>
         <td>
