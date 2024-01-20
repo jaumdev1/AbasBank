@@ -8,7 +8,14 @@ div {
   justify-content: center;
   padding: 15px;
 }
-
+.board-bank{
+  display: flex;
+  flex-direction: column;
+}
+.pagination{
+display: flex;
+align-items: end;
+}
 div:first-child {
   display: flex;
   align-items: center;

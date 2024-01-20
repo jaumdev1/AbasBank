@@ -4,7 +4,8 @@
   <button (click)="searchByCode()">Pesquisar Banco</button>
 </div>
 
-<div  *ngIf="banks && banks.length > 0">
+<div  class="board-bank" *ngIf="banks && banks.length > 0">
+
   <table>
     <thead>
       <tr>
@@ -14,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let bank of banks">
+      <tr *ngFor="let bank of banks | paginate: { itemsPerPage: 10, currentPage: p }">
         <td><span>{{ bank.name }}</span></td>
         <td><span>{{ bank.fullName }}</span></td>
         <td>
@@ -23,6 +24,7 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
 </div>
 
 <div *ngIf="!banks || banks.length === 0">

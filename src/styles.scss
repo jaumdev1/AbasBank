@@ -1,8 +1,14 @@
 @import './variables.scss';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background-color: $background-color;
   font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
 }
 button {
   padding: 8px 10px;

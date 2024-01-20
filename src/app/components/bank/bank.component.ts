@@ -5,20 +5,22 @@ import { MatDialog } from '@angular/material/dialog';
 import { RegisterBankComponent } from '../register-bank/register-bank.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
   selector: 'app-bank',
   standalone:true,
-  imports: [CommonModule, FormsModule,
-
-    FormsModule],
+  imports: [CommonModule,
+            FormsModule,
+            NgxPaginationModule,
+            FormsModule],
   templateUrl: './bank.component.html',
   styleUrls: ['./bank.component.scss'],
 })
 export class BankComponent implements OnInit {
   banks: Bank[] = [];
   searchCode: string = '';
+  p: number =1;
 
   constructor(private bankService: BankService, private dialog: MatDialog) {}
 
@@ -57,4 +59,8 @@ export class BankComponent implements OnInit {
 
     });
   }
+
+changePage(numeroDaPagina: number) {
+  this.p = numeroDaPagina;
+}
 }
