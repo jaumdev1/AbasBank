@@ -36,6 +36,9 @@ Aqui estão as cores principais utilizadas neste projeto (foram baseadas no site
 - Inclui um botão para cadastrar a conta, armazenando as informações no Local Storage.
 
 
+### Exemplo responsividade do projeto:
+
+![responsive](./src/assets/responsive.png)
 
 
 ## Integração com a API Brasil - Bancos
