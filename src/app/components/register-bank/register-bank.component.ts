@@ -7,7 +7,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-register-bank',
   standalone: true,
@@ -52,14 +52,18 @@ export class RegisterBankComponent implements OnInit, AfterViewInit {
         name: this.bank.name,
         fullName: this.bank.fullName,
       };
-      localStorage.setItem('registrationData', JSON.stringify(registrationData));
+
+      let accountsBanks = localStorage.getItem('accountsBanks');
+      let parsedAccounts = accountsBanks ? JSON.parse(accountsBanks) : [];
+
+      parsedAccounts.push(registrationData);
+      localStorage.setItem('accountsBanks', JSON.stringify(parsedAccounts));
 
       this.dialogRef.close();
     } else {
       this.openSnackBar('Por favor, preencha todos os campos.');
     }
   }
-
 
   updateValidity() {
     this.formValid = this.agency?.value?.trim() !== '' && this.account?.value?.trim() !== '';
