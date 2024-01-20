@@ -82,3 +82,21 @@ npm install -g @angular/cli@17.1.0
 ```bash
 ng serve
 ```
+
+# Possíveis Melhorias no Projeto
+
+1. Abstração para Chamar Serviços de Forma Desacoplada
+
+Atualmente, estou realizando chamadas diretas para a API pública Brasil API - Bancos. Para melhorar a manutenção e a flexibilidade do meu código, estou considerando criar uma abstração para chamar serviços de forma desacoplada, utilizando inversão de dependência. Isso permitirá uma maior modularidade e facilitará a substituição de serviços no futuro.
+
+2. Aprimoramento da Responsividade
+
+Apesar de apresentar um exemplo de responsividade, estou considerando uma análise mais aprofundada para garantir uma experiência consistente em dispositivos de diferentes tamanhos e resoluções. Estou testando a aplicação em uma variedade de dispositivos e ajustando a responsividade conforme necessário.
+
+3. Melhorias na Interface do Usuário
+
+Estou explorando possibilidades de aprimoramento na interface do usuário, como a inclusão de animações sutis, feedbacks visuais e melhorias no design para tornar a experiência mais agradável e intuitiva.
+
+4. Testes Unitários e de Integração
+
+Estou considerando a implementação de testes unitários e de integração para garantir a estabilidade e o bom funcionamento do meu código ao longo do tempo. Ferramentas como Jasmine e Karma podem ser úteis para esse propósito.
