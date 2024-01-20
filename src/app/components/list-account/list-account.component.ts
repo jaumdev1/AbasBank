@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { RegisterBankComponent } from '../register-bank/register-bank.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BankAccount } from '../../models/BankAccount.model';
 
 @Component({
   selector: 'app-list-account',
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListAccountComponent implements OnInit {
   searchCode: string = '';
-  banks: any[] = [];
+  banks: BankAccount[] = [];
 
   constructor(private dialog: MatDialog, private snackBar: MatSnackBar) {}
 
@@ -31,13 +32,13 @@ export class ListAccountComponent implements OnInit {
     if (!this.searchCode) {
         this.banks = allBanks;
     } else {
-        this.banks = allBanks.filter((bank:any) => String(bank.code).includes(this.searchCode));
+        this.banks = allBanks.filter((bank:BankAccount) => String(bank.code).includes(this.searchCode));
     }
 }
 
 
 
-  openRegisterModal(bank: any): void {
+  openRegisterModal(bank: BankAccount): void {
 
     const dialogRef = this.dialog.open(RegisterBankComponent, {
       data: { bank, isEdit: true },
@@ -50,7 +51,7 @@ export class ListAccountComponent implements OnInit {
     });
   }
 
-  editAccount(bank: any): void {
+  editAccount(bank: BankAccount): void {
 
     const dialogRef = this.dialog.open(RegisterBankComponent, {
       data: bank,
@@ -63,7 +64,7 @@ export class ListAccountComponent implements OnInit {
     });
   }
 
-  deleteAccount(bank: any): void {
+  deleteAccount(bank: BankAccount): void {
 
     const confirmDelete = window.confirm('Tem certeza de que deseja deletar esta conta?');
 

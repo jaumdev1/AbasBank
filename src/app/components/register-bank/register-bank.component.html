@@ -14,11 +14,11 @@
     <div>
       <mat-form-field>
         <mat-label>Agência</mat-label>
-        <input matInput [formControl]="agency" />
+        <input matInput [formControl]="agency" (input)="validateNumber($event)"/>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Conta</mat-label>
-        <input matInput [formControl]="account" />
+        <input matInput [formControl]="account"  (input)="validateNumber($event)"/>
       </mat-form-field>
     </div>
   </mat-dialog-content>

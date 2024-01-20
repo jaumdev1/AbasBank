@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { BankAccount } from '../../models/BankAccount.model';
 @Component({
   selector: 'app-register-bank',
   standalone: true,
@@ -28,19 +29,23 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./register-bank.component.scss'],
 })
 export class RegisterBankComponent implements OnInit, AfterViewInit {
-  agency = new FormControl('');
-  account = new FormControl('');
+  agency = new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/)]);
+  account = new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/)]);
   formValid = false;
   bankForm!: FormGroup;
   isEditing = false;
   ngOnInit() {
-    this.agency = new FormControl(this.bank?.agency || '', Validators.required);
-    this.account = new FormControl(this.bank?.account || '', Validators.required);
+    this.agency.setValidators([Validators.required, Validators.pattern(/^[0-9]*$/)]);
+    this.account.setValidators([Validators.required, Validators.pattern(/^[0-9]*$/)]);
 
     this.bankForm = new FormGroup({
       agency: this.agency,
       account: this.account,
     });
+    if (this.bank) {
+      this.bankForm.get('agency')?.setValue(this.bank.agency);
+      this.bankForm.get('account')?.setValue(this.bank.account);
+    }
     this.isEditing = !!this.bank;
   }
 
@@ -50,7 +55,7 @@ export class RegisterBankComponent implements OnInit, AfterViewInit {
   }
   constructor(
     public dialogRef: MatDialogRef<RegisterBankComponent>,
-    @Inject(MAT_DIALOG_DATA) public bank: any,
+    @Inject(MAT_DIALOG_DATA) public bank: BankAccount,
     private snackBar: MatSnackBar,
     private router: Router
   ) {}
@@ -58,7 +63,9 @@ export class RegisterBankComponent implements OnInit, AfterViewInit {
 
   registerAccount(): void {
     if (this.formValid) {
-      const registrationData = {
+
+
+      const registrationData: BankAccount = {
         code: this.bank.code,
         agency: this.bankForm.get('agency')?.value,
         account: this.bankForm.get('account')?.value,
@@ -66,6 +73,8 @@ export class RegisterBankComponent implements OnInit, AfterViewInit {
         name: this.bank.name,
         fullName: this.bank.fullName,
       };
+
+
 
       let accountsBanks = localStorage.getItem('accountsBanks');
       let parsedAccounts = accountsBanks ? JSON.parse(accountsBanks) : [];
@@ -97,5 +106,11 @@ export class RegisterBankComponent implements OnInit, AfterViewInit {
     this.snackBar.open(message, 'Fechar', {
       duration: 3000,
     });
+  }
+  validateNumber(event: any) {
+    const inputValue = event.target.value;
+    if (!/^[0-9]*$/.test(inputValue)) {
+      event.target.value = inputValue.slice(0, -1);
+    }
   }
 }
