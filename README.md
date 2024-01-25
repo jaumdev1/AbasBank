@@ -1,6 +1,6 @@
 # Visão Geral
 
-O projeto AbasBank é uma aplicação bancária Angular que incorpora recursos, como checagem de formulários, paginação para listar bancos e funções CRUD para criar contas bancárias. A aplicação utiliza a API pública [Brasil API - Bancos](https://brasilapi.com.br/api/banks/v1) para listar bancos e obter detalhes específicos por código.
+O projeto AbasBank é uma aplicação bancária feito Angular que incorpora recursos, como checagem de formulários, paginação para listar bancos e funções CRUD para criar contas bancárias. A aplicação utiliza a API pública [Brasil API - Bancos](https://brasilapi.com.br/api/banks/v1) para listar bancos e obter detalhes específicos por código.
 
 ## Acesso à Aplicação Online
 
